@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>504 Power</title>
+	<link href="https://cdn.jsdelivr.net/npm/pagedone@1.2.2/src/css/pagedone.css " rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link href="./assets/css/style.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+</head>
+
+<body>
+	<section class=" container relative">
+		<!-- Nav -->
+		<div class="sticky top-0 w-full h-[25px] topLine p-1 z-[9999]">
+			<div class="container w-full flex flex-row gap-3 text-black text-xs">
+				<div class="flex flex-row gap-2">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+						stroke="currentColor" class="size-4 font-bold">
+						<path stroke-linecap="round" stroke-linejoin="round"
+							d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
+					</svg>
+					<span class="font-bold">242/1 Điện Biên Phủ, Q. Thanh Khê, TP. Đà Nẵng</span>
+				</div>
+			</div>
+		</div>
+
+		<nav class="sticky top-0 w-full px-8 topNav shadow-lg z-[9999]">
+			<div class="container mx-auto ">
+				<div class="w-full flex flex-col lg:flex-row">
+					<div class=" flex justify-between  lg:flex-row">
+						<div class="logo">
+							<a href="/index.html" class="flex items-center">
+								<img src="./assets/images/logo.png" alt="" width="60" height="80">
+							</a>
+						</div>
+						<button data-collapse-toggle="navbar-default-sticky" type="button"
+							class="inline-flex items-center p-2 ml-3 text-sm lg:hidden md:hidden"
+							aria-controls="navbar-default-sticky" aria-expanded="false">
+							<span class="sr-only">Open main menu</span>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6 text-white">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+							</svg>
+
+						</button>
+					</div>
+					<div class="hidden w-full lg:flex lg:pl-11 " id="navbar-default-sticky">
+						<ul class="lg:flex items-center flex-col mt-4 lg:mt-0 lg:flex-row">
+							<li class="block lg:hidden md:hidden mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+								<a href="javascript:;"
+									class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+									<span class="text-sm hover:text-yellow-300">GIỚI THIỆU</span>
+								</a>
+							</li>
+							<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+								<a href="javascript:;" id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+									class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium   mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+									<span class="text-sm hover:text-yellow-300 flex flex-row gap-1 items-center">
+										<span>SẢN PHẨM</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+											stroke-width="1.5" stroke="currentColor" class="size-5">
+											<path stroke-linecap="round" stroke-linejoin="round"
+												d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+										</svg>
+
+									</span>
+								</a>
+								<!-- Dropdown menu -->
+								<div id="dropdownNavbar"
+									class="z-1000 hidden font-normal bg-white divide-y divide-gray-100 shadow w-44 dark:bg-gray-700 dark:divide-gray-600 w-[450px]">
+									<ul class="py-2 text-sm text-black dark:text-gray-400"
+										aria-labelledby="dropdownLargeButton">
+										<li>
+											<a href="products.html" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black uppercase">
+												Vật Tư, Thiết Bị Điện 0,4kV-110kV
+											</a>
+										</li>
+										<li>
+											<a href="#"
+												class="block px-4 py-2 hover:bg-yellow-500 hover:text-black uppercase">Trụ
+												Bê Tông Ly Tâm
+											</a>
+										</li>
+										<li>
+											<a href="#"
+												class="block px-4 py-2 hover:bg-yellow-500 hover:text-black uppercase">Tấm
+												Pin Năng Lượng Mặt Trời Và Vật Tư, Phụ Kiện
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+								<a href="javascript:;"
+									class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium  mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+									<span class="text-sm hover:text-yellow-300">TƯ VẤN THIẾT KẾ</span>
+								</a>
+							</li>
+							<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+								<a href="javascript:;"
+									class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium  mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+									<span class="text-sm hover:text-yellow-300">XÂY DỰNG ĐIỆN</span>
+								</a>
+							</li>
+							<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+								<a href="javascript:;"
+									class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium  mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+									<span class="text-sm hover:text-yellow-300">SẢN XUẤT BTLT</span>
+								</a>
+							</li>
+							<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+								<a href="javascript:;"
+									class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium  mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+									<span class="text-sm hover:text-yellow-300">KINH DOANH VẬT TƯ ĐIỆN</span>
+								</a>
+							</li>
+							<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+								<a href="javascript:;"
+									class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium  mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+									<span class="text-sm hover:text-yellow-300">PHÁP LÝ DANH NGHIỆP</span>
+								</a>
+							</li>
+							<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+								<a href="javascript:;"
+									class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium  mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+									<span class="text-sm hover:text-yellow-300">THƯ VIỆN LUẬT</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div class=" container px-0">
+			<div class="swiper default-carousel swiper-container z-[0]">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="flex justify-center items-center lg:h-[700px] md:h-[700px] h-[350px]" style="
+								background-image: url('https://504power.com/wp-content/uploads/2022/06/504-Power_hinh-3-2048x1367.jpg'); 
+								background-repeat: no-repeat;
+								background-size: 100% 100%;
+								">
+							<!-- <span class="text-3xl font-semibold text-indigo-600">Slide 1 </span> -->
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="flex justify-center items-center lg:h-[700px] md:h-[700px] h-[350px]" style="
+								background-image: url('https://504power.com/wp-content/uploads/2022/07/cho-thue-xuong-nha-kho-2048x1024.jpeg'); 
+								background-repeat: no-repeat;
+								background-size: 100% 100%;
+								">
+							<!-- <span class="text-3xl font-semibold text-indigo-600">Slide 1 </span> -->
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="flex justify-center items-center lg:h-[700px] md:h-[700px] h-[350px]" style="
+								background-image: url('https://504power.com/wp-content/uploads/2022/11/ME_50432-min-2048x1363.jpg'); 
+								background-repeat: no-repeat;
+								background-size: 100% 100%;
+								">
+							<!-- <span class="text-3xl font-semibold text-indigo-600">Slide 1 </span> -->
+						</div>
+					</div>
+				</div>
+				<div class="flex items-center gap-8 lg:justify-start justify-center z-[1]">
+					<button id="slider-button-left"
+						class="swiper-button-prev group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full !top-2/4 !-translate-y-8 !left-5 hover:bg-indigo-600 "
+						data-carousel-prev>
+					</button>
+					<button id="slider-button-right"
+						class="swiper-button-next group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full !top-2/4 !-translate-y-8  !right-5 hover:bg-indigo-600"
+						data-carousel-next>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div class=" container px-0 mt-[20px] mb-[50px]">
+			<div class="w-full text-center mb-[20px]">
+				<span class="font-bold text-2xl">CÁC DÒNG SẢN PHẨM</span>
+			</div>
+			<div class="w-full">
+				<!--HTML CODE-->
+				<div class="w-full relative">
+					<div class="swiper slide-carousel-products swiper-container relative">
+						<div class="swiper-wrapper mb-16">
+							<div class="swiper-slide w-full">
+								<div class="h-96 flex flex-col justify-center items-center cursor-pointer">
+									<div class="w-full h-80 top-0" style="
+										background-image: url('https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+										background-repeat: no-repeat;
+										background-size: cover;
+										">
+									</div>
+									<div class="w-full text-center h-14 bg-yellow-400 pt-[20px]">
+										<span class="font-bold text-sx uppercase cursor-pointer">Vật
+											Tư, Thiết Bị Điện 0,4kV-110kV</span>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="h-96 flex flex-col justify-center items-center cursor-pointer">
+									<div class="w-full h-80 top-0" style="
+										background-image: url('https://images.pexels.com/photos/2469/building-construction-building-site-constructing.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+										background-repeat: no-repeat;
+										background-size: cover;
+										">
+									</div>
+									<div class="w-full text-center h-14 bg-yellow-400 pt-[20px]">
+										<span
+											class="font-bold text-sx uppercase hover:text-yellow-700 cursor-pointer">Bê
+											Tông Ly Tâm</span>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="h-96 flex flex-col justify-center items-center cursor-pointer">
+									<div class="w-full h-80 top-0" style="
+										background-image: url('https://images.pexels.com/photos/236089/pexels-photo-236089.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+										background-repeat: no-repeat;
+										background-size: cover;
+										">
+									</div>
+									<div class="w-full text-center h-14 bg-yellow-400 pt-[20px]">
+										<span
+											class="font-bold text-sx uppercase hover:text-yellow-700 cursor-pointer">Pin
+											Năng Lượng Mặt Trời Và Vật Tư, Phụ Kiện</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="absolute flex justify-center items-center m-auto left-0 right-0 w-fit bottom-12">
+							<button id="slider-button-left"
+								class="swiper-button-prev group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full hover:bg-indigo-600 !-translate-x-16"
+								data-carousel-prev>
+							</button>
+							<button id="slider-button-right"
+								class="swiper-button-next group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full hover:bg-indigo-600 !translate-x-16"
+								data-carousel-next>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class=" container px-0 mt-[20px] mb-[20px]">
+			<div class="w-full text-center mb-[20px]">
+				<span class="font-bold text-2xl">DỰ ÁN</span>
+			</div>
+			<div class="w-full">
+				<!--HTML CODE-->
+				<div class="w-full relative">
+					<div class="swiper slide-carousel-projects swiper-container relative">
+						<div class="swiper-wrapper mb-16">
+							<div class="swiper-slide w-full">
+								<div class="h-96 flex flex-col justify-center items-center cursor-pointer">
+									<div class="w-full h-72 top-0" style="
+										background-image: url('https://504power.com/wp-content/uploads/2022/06/Luoi-dien-phan-phoi-Binh-Dinh_504-POWER-5.jpg');
+										background-repeat: no-repeat;
+										background-size: cover;
+										">
+									</div>
+									<div class="w-full text-center h-14 bg-yellow-400 pt-[10px]">
+										<a href="project.html">
+											<span
+											class="font-bold text-sm uppercase hover:text-yellow-700 cursor-pointer">Đấu
+											nối 110kV sau TBA 220kV Lao Bảo</span>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="h-96 flex flex-col justify-center items-center cursor-pointer">
+									<div class="w-full h-72 top-0" style="
+										background-image: url('https://504power.com/wp-content/uploads/2022/05/DAK-HA-KON-TUM_504-POWER_2-LOGO-1-2048x1417.jpg');
+										background-repeat: no-repeat;
+										background-size: cover;
+										">
+									</div>
+									<div class="w-full text-center h-14 bg-yellow-400 pt-[10px]">
+										<span
+											class="font-bold text-sm uppercase hover:text-yellow-700 cursor-pointer">Nâng
+											cao khả năng mang tải ĐZ 110kV Đăk Hà – Kon Tum</span>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="h-96 flex flex-col justify-center items-center cursor-pointer">
+									<div class="w-full h-72 top-0" style="
+										background-image: url('https://504power.com/wp-content/uploads/2022/04/Tram-an-don-110kv-logo-504-1.jpg');
+										background-repeat: no-repeat;
+										background-size: cover;
+										">
+									</div>
+									<div class="w-full text-center h-14 bg-yellow-400 pt-[10px]">
+										<span
+											class="font-bold text-sm uppercase hover:text-yellow-700 cursor-pointer">Cải
+											tạo và phát triển lưới điện phân phối Bình Định</span>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="h-96 flex flex-col justify-center items-center cursor-pointer">
+									<div class="w-full h-72 top-0" style="
+										background-image: url('https://504power.com/wp-content/uploads/2022/04/screenshot_1668139327.png');
+										background-repeat: no-repeat;
+										background-size: cover;
+										">
+									</div>
+									<div class="w-full text-center h-14 bg-yellow-400 pt-[10px]">
+										<span
+											class="font-bold text-sm uppercase hover:text-yellow-700 cursor-pointer">Trạm
+											110kV VSIP và đấu nối</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="absolute flex justify-center items-center m-auto left-0 right-0 w-fit bottom-12">
+							<button id="slider-button-left"
+								class="swiper-button-prev group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full  hover:bg-indigo-600 !-translate-x-16"
+								data-carousel-prev>
+							</button>
+							<button id="slider-button-right"
+								class="swiper-button-next group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full hover:bg-indigo-600 !translate-x-16"
+								data-carousel-next>
+							</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class=" container h-28 section-number p-4 hidden lg:block md:block">
+			<div class="w-full flex flex-row gap-5 justify-content-center items-center">
+				<div class="flex flex-col border-r border-solid border-gray-700 pr-[50px] gap-2">
+					<span class="text-2xl text-bold text-yellow-500 mx-auto">2,600 + </span>
+					<span class="uppercase text-gray-400 font-bold mx-auto">Đối Tác</span>
+				</div>
+				<div class="flex flex-col border-r border-solid border-gray-700 pr-[50px] gap-2">
+					<span class="text-2xl text-bold text-yellow-500 mx-auto">18 +</span>
+					<span class="uppercase text-gray-400 font-bold mx-auto">Năm Phát Triển</span>
+				</div>
+				<div class="flex flex-col border-r border-solid border-gray-700 pr-[50px] gap-2">
+					<span class="text-2xl text-bold text-yellow-500 mx-auto">8,000 +</span>
+					<span class="uppercase text-gray-400 font-bold mx-auto">Dự Án Hoàn Thành</span>
+				</div>
+				<div class="flex flex-col gap-2">
+					<span class="text-2xl text-bold text-yellow-500 mx-auto">300 +</span>
+					<span class="uppercase text-gray-400 font-bold mx-auto">Nhân Sự Tài Năng</span>
+				</div>
+			</div>
+		</div>
+
+		<div class=" container h-[800px] lg:h-[600px] md:h-[600px] flex flex-col p-4 section-about" style="
+			background: url('https://504power.com/wp-content/uploads/2022/11/ME_50441-min-2048x1365.jpg'), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			background-blend-mode: overlay;
+		">
+			<div
+				class="flex md:flex-row lg:flex-row flex-col w-full h-full justify-content-center items-center gap-4 mt-[55px]">
+				<div class="w-full md:w-2/3 lg:w-2/3">
+					<p class="font-bold text-3xl text-yellow-500 mb-[20px]">504 POWER</p>
+					<p class="mb-[20px] text-white font-bold">504 Power– Tiền thân là Công ty TNHH MTV Tư Vấn và Xây lắp
+						504, được thành lập vào năm 2004 và được dẫn dắt xuyên suốt bởi CEO Hà Đức Trí cho đến ngày nay.
+					</p>
+					<p class="mb-[20px] text-white font-bold">Từ một công ty với quy mô nhỏ, sau 18 năm đi vào hoạt
+						động, 504 Power đã tạo được uy tín và khẳng định được thương hiệu của mình trong lĩnh vực sản
+						xuất, tư vấn, và xây dựng các hạ tầng điện.</p>
+				</div>
+				<div class="flex flex-col gap-2 w-full md:w-2/3 lg:w-2/3">
+					<div
+						class="md:h-18 lg:h-18 h-12 bg-gray-200 opacity-[0.8] p-6 flex flex-row gap-2 items-center hover:opacity-[1] cursor-pointer">
+						<img src="https://504power.com/wp-content/uploads/2021/11/icon-duandien-p.svg"
+							class="w-5 h-5" />
+						<span class="font-bold text-base text-center text-gray-900 uppercase">Tổng thầu EPC</span>
+					</div>
+					<div
+						class="md:h-18 lg:h-18 h-12 bg-gray-200 opacity-[0.8] p-6 flex flex-row gap-2 items-center hover:opacity-[1] cursor-pointer">
+						<img src="https://504power.com/wp-content/uploads/2021/11/icon-dienmattroi-p.svg"
+							class="w-5 h-5" />
+						<span class="font-bold text-base text-center text-gray-900 uppercase">Tư vấn khảo sát thiết kế
+							các dự án</span>
+					</div>
+					<div
+						class="md:h-18 lg:h-18 h-12 bg-gray-200 opacity-[0.8] p-6 flex flex-row gap-2 items-center hover:opacity-[1] cursor-pointer">
+						<img src="https://504power.com/wp-content/uploads/2021/11/icon-vienthong-p.svg"
+							class="w-5 h-5" />
+						<span class="font-bold text-base text-center text-gray-900 uppercase">Kinh doanh vật tư, thiết
+							bị điện</span>
+					</div>
+					<div
+						class="md:h-18 lg:h-18 h-12 bg-gray-200 opacity-[0.8] p-6 flex flex-row gap-2 items-center hover:opacity-[1] cursor-pointer">
+						<img src="https://504power.com/wp-content/uploads/2021/11/icon-nhakho-p.svg" class="w-5 h-5" />
+						<span class="font-bold text-base text-center text-gray-900 uppercase">Cho thuê kho bãi lưu
+							trữ</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class=" container px-0 mt-[20px] mb-[50px]">
+			<div class="w-full relative">
+				<div class="swiper slide-carousel-partners swiper-container relative">
+					<div class="swiper-wrapper mb-16">
+						<div class="swiper-slide w-full bg-white opacity-[0.8]">
+							<div class="h-24 flex flex-col justify-center items-center cursor-pointer">
+								<div class="top-0 content-center">
+									<img src="https://504power.com/wp-content/uploads/2022/12/techcombank-logo.jpg" class="w-full" />
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide w-full bg-white opacity-[0.8]">
+							<div class="h-24 flex flex-col justify-center items-center cursor-pointer">
+								<div class="top-0 content-center">
+									<img src="https://504power.com/wp-content/uploads/2023/04/screenshot_1681703717.png" class="w-full" />
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide w-full bg-white opacity-[0.8]">
+							<div class="h-24 flex flex-col justify-center items-center cursor-pointer">
+								<div class="top-0 content-center">
+									<img src="https://504power.com/wp-content/uploads/2023/04/ee273eee7a560d966b70404eb8435247_5f4481e377e9c_1598325219.jpg" class="w-full" />
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide w-full bg-white opacity-[0.8]">
+							<div class="h-24 flex flex-col justify-center items-center cursor-pointer">
+								<div class="top-0 content-center">
+									<img src="https://504power.com/wp-content/uploads/2023/04/BIDV-logo.png" class="w-full" />
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide w-full bg-white opacity-[0.8]">
+							<div class="h-24 flex flex-col justify-center items-center cursor-pointer">
+								<div class="top-0 content-center">
+									<img src="https://504power.com/wp-content/uploads/2022/12/dinco.png" class="w-full" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="absolute flex justify-center items-center m-auto left-0 right-0 w-fit bottom-12">
+						<button id="slider-button-left"
+							class="swiper-button-prev group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full  hover:bg-indigo-600 !-translate-x-16"
+							data-carousel-prev>
+						</button>
+						<button id="slider-button-right"
+							class="swiper-button-next group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full hover:bg-indigo-600 !translate-x-16"
+							data-carousel-next>
+						</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/pagedone@1.2.2/src/js/pagedone.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script>
+		var swiper = new Swiper(".default-carousel", {
+			loop: true,
+			fraction: true,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+		});
+	</script>
+	<script>
+		new Swiper(".slide-carousel-products", {
+			loop: true,
+			slidesPerView: 3,
+			spaceBetween: 20,
+			navigation: {
+				nextEl: ".slide-carousel-products .swiper-button-next",
+				prevEl: ".slide-carousel-products .swiper-button-prev",
+			},
+			breakpoints: {
+				1920: {
+					slidesPerView: 3,
+					spaceBetween: 30
+				},
+				1028: {
+					slidesPerView: 3,
+					spaceBetween: 30
+				},
+				960: {
+					slidesPerView: 3,
+					spaceBetween: 8
+				},
+				720: {
+					slidesPerView: 3,
+					spaceBetween: 6
+				},
+				540: {
+					slidesPerView: 2,
+					spaceBetween: 4
+				},
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 2
+				},
+			}
+		});
+
+		new Swiper(".slide-carousel-projects", {
+			loop: true,
+			slidesPerView: 3,
+			spaceBetween: 20,
+			navigation: {
+				nextEl: ".slide-carousel-projects .swiper-button-next",
+				prevEl: ".slide-carousel-projects .swiper-button-prev",
+			},
+			breakpoints: {
+				1920: {
+					slidesPerView: 3,
+					spaceBetween: 30
+				},
+				1028: {
+					slidesPerView: 3,
+					spaceBetween: 30
+				},
+				960: {
+					slidesPerView: 3,
+					spaceBetween: 8
+				},
+				720: {
+					slidesPerView: 3,
+					spaceBetween: 6
+				},
+				540: {
+					slidesPerView: 2,
+					spaceBetween: 4
+				},
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 2
+				},
+			}
+		});
+
+		new Swiper(".slide-carousel-partners", {
+			loop: true,
+			fraction: true,
+			autoplay: {
+				delay: 2000,
+				disableOnInteraction: false,
+			},
+			slidesPerView: 5,
+			spaceBetween: 20,
+			navigation: {
+				nextEl: ".slide-carousel-partners .swiper-button-next",
+				prevEl: ".slide-carousel-partners .swiper-button-prev",
+			},
+			breakpoints: {
+				1920: {
+					slidesPerView: 5,
+					spaceBetween: 30
+				},
+				1028: {
+					slidesPerView: 5,
+					spaceBetween: 30
+				},
+				960: {
+					slidesPerView: 5,
+					spaceBetween: 8
+				},
+				720: {
+					slidesPerView: 3,
+					spaceBetween: 6
+				},
+				540: {
+					slidesPerView: 4,
+					spaceBetween: 4
+				},
+				320: {
+					slidesPerView: 3,
+					spaceBetween: 2
+				},
+			}
+		});
+	</script>
+</body>
+
+</html>

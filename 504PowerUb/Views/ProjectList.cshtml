@@ -1,0 +1,88 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ProjectList>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+	var categories = Model.FeaturedProjects.ToList();
+	var projectList = Model.FeaturedProjects;
+
+	var projects = new List<IPublishedContent>();
+	foreach (var projectsItem in projectList)
+	{
+		var projectItemEntry = (Projects)projectsItem;
+		projects.AddRange(projectItemEntry.FeaturedProjects.ToList());
+	}
+
+}
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+<style>
+	.active {
+		background-color: #f9c803;
+	}
+</style>
+<div class=" container h-[300px] lg:h-[300px] md:h-[300px] flex flex-col p-4 section-about" style=" background: url('https://images.pexels.com/photos/189524/pexels-photo-189524.jpeg'), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)); background-position: center center; background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-blend-mode: overlay; ">
+	<div class="w-full h-full content-center text-center">
+		<span class="font-bold text-5xl text-yellow-500 underline text-center uppercase">DỰ ÁN</span>
+	</div>
+</div>
+
+<div class="w-full flex lg:flex-row md:flex-row flex-col gap-3 mt-[50px] mb-[100px]">
+	<div class="w-full md:w-1/3 lg:w-1/3">
+		<div class="w-full flex flex-col gap-3">
+			<span class="font-bold text-3xl text-black text-left uppercase">DANH SÁCH DỰ ÁN</span>
+			<hr>
+			<div class="flex flex-col gap-2 shadow hover:shadow-lg p-1">
+				@foreach (var item in categories)
+				{
+					var itemEntry = (Projects)item;
+					var cssClass = "font-bold hover:bg-yellow-400 text-gray-700 cursor-pointer text-base p-2 border-b uppercase";
+
+					<a href="@itemEntry.Url()" class="@cssClass">
+						<span class="font-bold">
+							@item.Name
+						</span>
+					</a>
+				}
+			</div>
+		</div>
+	</div>
+	<!-- overflow-y-auto h-[900px] -->
+	<div class="w-full md:w-2/3 lg:w-2/3">
+		<div class="w-full mb-[20px] flex">
+			<input type="text" placeholder="Nhập từ khóa tìm kiếm sản phẩm" class="p-2 w-[400px] lg:w-[435px] md:w-[435px] rounded-s-full border">
+			<button type="submit" dir="rtl" class="p-2 w-[50px] bg-yellow-500 rounded-s-full pt-[4px]">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+					  stroke="currentColor" class="size-5 text-white">
+					<path stroke-linecap="round" stroke-linejoin="round"
+							d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+				</svg>
+			</button>
+		</div>
+		<div class="w-full grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 gap-4">
+			@if (projects != null && projects.Any())
+			{
+				foreach (var product in projects)
+				{
+					var projectEntry = (Project)product;
+					var desc = $"{@projectEntry.Description.Substring(0, 50)}...";
+
+					<div class="flex flex-col gap-2 shadow hover:shadow-lg border-b border-thin border-yellow-500 border-b-4">
+						<img src="@projectEntry.Photos.Url()"
+							  class="h-[220px]" />
+						<div class="flex flex-col gap-2 p-2">
+							<span class="font-bold text-lg cursor-pointer hover:text-yellow-500 h-[50px]">
+								@projectEntry.ProjectName
+							</span>
+							<span>
+								@desc
+							</span>
+							<div class="w-full text-center mt-[20px] mb-[10px]">
+								<a href="@projectEntry.Url()"><span class="font-bold cursor-pointer p-2 border uppercase ">Xem thêm</span></a>
+							</div>
+						</div>
+					</div>
+				}
+			}
+		</div>
+	</div>
+</div>

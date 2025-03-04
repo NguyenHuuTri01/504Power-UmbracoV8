@@ -1,0 +1,239 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "master.cshtml";
+    var slides = Model.Slide.ToList();
+    var sanpham = (ProductList)Model.ChildrenOfType("ProductList").ToList()[0];
+    var duans = Model.ChildrenOfType("ProjectList").ToList();
+    var newestUpdateProjects = new List<Project>();
+    foreach (var duan in duans)
+    {
+        var duanEntry = (ProjectList)duan;
+        if (duanEntry.FeaturedProjects != null)
+        {
+            foreach (var projectItem in duanEntry.FeaturedProjects.ToList())
+            {
+                var projectsEntry = (Projects)projectItem;
+                var availableProjects = projectsEntry.FeaturedProjects.ToList();
+                foreach (var project in availableProjects)
+                {
+                    var projectEntry = (Project)project;
+                    newestUpdateProjects.Add(projectEntry);
+                }
+            }
+        }
+    }
+
+    var nhungconsoantuong = Model.NhungConSoAnTuong.ToList();
+    var noidung1 = Model.NoiDung1;
+    var noidung2 = Model.NoiDung2;
+    var anhnen = Model.HinhAnhNen.Url();
+    var dichvutieubieu = Model.DichVuTieuBieu.ToList();
+    var danhsachdoitac = Model.DanhSachDoiTac.ToList();
+}
+
+<div class="container px-0">
+    <div class="swiper default-carousel swiper-container z-[0]">
+        <div class="swiper-wrapper">
+            @foreach (var slide in slides)
+            {
+                var slideEntry = (MasterCarouselSlider)slide;
+                var slideImage = slideEntry.SliderBackgroundImage.Url();
+
+                <div class="swiper-slide">
+                    <div class="flex justify-center items-center lg:h-[700px] md:h-[700px] h-[350px]" style="
+						background-image: url(@slideImage);
+						background-repeat: no-repeat;
+						background-size: 100% 100%;
+						">
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="flex items-center gap-8 lg:justify-start justify-center z-[1]">
+            <button id="slider-button-left"
+                    class="swiper-button-prev group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full !top-2/4 !-translate-y-8 !left-5 hover:bg-indigo-600 "
+                    data-carousel-prev>
+            </button>
+            <button id="slider-button-right"
+                    class="swiper-button-next group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full !top-2/4 !-translate-y-8  !right-5 hover:bg-indigo-600"
+                    data-carousel-next>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container px-0 mt-[20px] mb-[50px]">
+    <div class="w-full text-center mb-[20px]">
+        <span class="font-bold text-2xl">CÁC DÒNG SẢN PHẨM</span>
+    </div>
+    <div class="w-full">
+        <!--HTML CODE-->
+        <div class="w-full relative">
+            <div class="swiper slide-carousel-products swiper-container relative">
+                <div class="swiper-wrapper mb-16">
+                    @foreach (var product in sanpham.FeaturedProducts.ToList())
+                    {
+                        var productEntry = (Products)product;
+                        var productImage = productEntry.ProductsImage.Url();
+                        var productName = productEntry.ProductsName;
+                        <div class="swiper-slide">
+                            <div class="h-96 flex flex-col justify-center items-center cursor-pointer">
+                                <div class="w-full h-80 top-0" style="
+									background-image: url(@productImage);
+									background-repeat: no-repeat;
+									background-size: cover;
+									">
+                                </div>
+                                <div class="w-full text-center h-14 bg-yellow-400 pt-[20px]">
+                                    <a href="@productEntry.Url()">
+                                        <span class="font-bold text-sm uppercase cursor-pointer">
+                                            @productName
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="absolute flex justify-center items-center m-auto left-0 right-0 w-fit bottom-12">
+                    <button id="slider-button-left"
+                            class="swiper-button-prev group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full hover:bg-indigo-600 !-translate-x-16"
+                            data-carousel-prev>
+                    </button>
+                    <button id="slider-button-right"
+                            class="swiper-button-next group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full hover:bg-indigo-600 !translate-x-16"
+                            data-carousel-next>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class=" container px-0 mt-[20px] mb-[20px]">
+    <div class="w-full text-center mb-[20px]">
+        <span class="font-bold text-2xl">DỰ ÁN</span>
+    </div>
+    <div class="w-full">
+        <div class="w-full relative">
+            <div class="swiper slide-carousel-projects swiper-container relative">
+                <div class="swiper-wrapper mb-16">
+                    @foreach (var project in newestUpdateProjects.OrderByDescending(x => x.UpdateDate))
+                    {
+                        var projectsName = project.Name;
+                        var projectsImage = project.Photos.Url();
+
+                        <div class="swiper-slide">
+                            <div class="h-96 flex flex-col justify-center items-center cursor-pointer">
+                                <div class="w-full h-72 top-0" style="
+											background-image: url(@projectsImage);
+											background-repeat: no-repeat;
+											background-size: cover;
+											">
+                                </div>
+                                <div class="w-full text-center h-14 bg-yellow-400 pt-[10px]">
+                                    <a href="@project.Url()">
+                                        <span class="font-bold text-sm uppercase hover:text-yellow-700 cursor-pointer">
+                                            @projectsName
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="absolute flex justify-center items-center m-auto left-0 right-0 w-fit bottom-12">
+                    <button id="slider-button-left"
+                            class="swiper-button-prev group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full  hover:bg-indigo-600 !-translate-x-16"
+                            data-carousel-prev>
+                    </button>
+                    <button id="slider-button-right"
+                            class="swiper-button-next group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full hover:bg-indigo-600 !translate-x-16"
+                            data-carousel-next>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class=" container h-28 section-number p-4 hidden lg:block md:block">
+    <div class="w-full flex flex-row gap-5 justify-content-center items-center">
+        @foreach (var item in nhungconsoantuong)
+        {
+            <div class="flex flex-col border-r border-solid border-gray-700 pr-[50px] gap-2">
+                <span class="text-2xl text-bold text-yellow-500 mx-auto">@item.NumberValue</span>
+                <span class="uppercase text-gray-400 font-bold mx-auto">@item.NumberName</span>
+            </div>
+        }
+    </div>
+</div>
+
+<div class=" container h-[800px] lg:h-[600px] md:h-[600px] flex flex-col p-4 section-about" style="
+	background: url(@anhnen), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-blend-mode: overlay;
+">
+    <div class="flex md:flex-row lg:flex-row flex-col w-full h-full justify-content-center items-center gap-4 mt-[55px]">
+        <div class="w-full md:w-2/3 lg:w-2/3">
+            <p class="font-bold text-3xl text-yellow-500 mb-[20px]">504 POWER</p>
+            <p class="mb-[20px] text-white font-bold">
+                @noidung1
+            </p>
+            <p class="mb-[20px] text-white font-bold">
+                @noidung2
+            </p>
+        </div>
+        <div class="flex flex-col gap-2 w-full md:w-2/3 lg:w-2/3">
+            @foreach (var dichvu in dichvutieubieu.OrderBy(d => d.ActivityPriority))
+            {
+                <div class="md:h-18 lg:h-18 h-12 bg-gray-200 opacity-[0.8] p-6 flex flex-row gap-2 items-center hover:opacity-[1] cursor-pointer">
+                    <img src="@dichvu.ActivityImage.Url()" class="w-5 h-5" />
+                    <span class="font-bold text-base text-center text-gray-900 uppercase">
+                        @dichvu.ActivityCtacaption
+                    </span>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class=" container px-0 mt-[20px] mb-[50px]">
+    <div class="w-full relative">
+        <div class="swiper slide-carousel-partners swiper-container relative">
+            <div class="swiper-wrapper mb-16">
+                @foreach (var doitac in danhsachdoitac)
+                {
+                    var hinhanh = doitac.PartnerImage.Url();
+                    <div class="swiper-slide w-full bg-white opacity-[0.8]">
+                        <div class="h-24 flex flex-col justify-center items-center cursor-pointer">
+                            <div class="top-0 content-center">
+                                <img src=@hinhanh class="w-full" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="absolute flex justify-center items-center m-auto left-0 right-0 w-fit bottom-12">
+                <button id="slider-button-left"
+                        class="swiper-button-prev group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full  hover:bg-indigo-600 !-translate-x-16"
+                        data-carousel-prev>
+                </button>
+                <button id="slider-button-right"
+                        class="swiper-button-next group !p-2 flex justify-center items-center border border-solid border-indigo-600 !w-12 !h-12 transition-all duration-500 rounded-full hover:bg-indigo-600 !translate-x-16"
+                        data-carousel-next>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<section class="section section">
+    @*@Html.GetGridHtml(Model, "bodyText", "bootstrap3-fluid")*@
+</section>

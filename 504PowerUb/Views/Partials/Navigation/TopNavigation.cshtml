@@ -1,0 +1,127 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Web;
+@{
+	var site = Model.Root();
+	var selection = site.Children.Where(x => x.IsVisible());
+	var home = Umbraco.Content(1104);
+	var sanpham = (ProductList)home.ChildrenOfType("ProductList").ToList()[0];
+}
+<div class="sticky top-0 w-full h-[25px] topLine p-1 z-[9999]">
+	<div class="container w-full flex flex-row gap-3 text-black text-xs">
+		<div class="flex flex-row gap-2">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+				  stroke="currentColor" class="size-4 font-bold">
+				<path stroke-linecap="round" stroke-linejoin="round"
+						d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
+			</svg>
+			<span class="font-bold">242/1 Điện Biên Phủ, Q. Thanh Khê, TP. Đà Nẵng</span>
+		</div>
+	</div>
+</div>
+
+<nav class="sticky top-0 w-full px-8 topNav shadow-lg z-[9999]">
+	<div class="container mx-auto ">
+		<div class="w-full flex flex-col lg:flex-row">
+			<div class=" flex justify-between  lg:flex-row">
+				<div class="logo">
+					<a href="/" class="flex items-center">
+						<img src="~/assets/images/logo.png" alt="" width="60" height="80">
+					</a>
+				</div>
+				<button data-collapse-toggle="navbar-default-sticky" type="button"
+						  class="inline-flex items-center p-2 ml-3 text-sm lg:hidden md:hidden"
+						  aria-controls="navbar-default-sticky" aria-expanded="false">
+					<span class="sr-only">Open main menu</span>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+						  stroke="currentColor" class="size-6 text-white">
+						<path stroke-linecap="round" stroke-linejoin="round"
+								d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+					</svg>
+
+				</button>
+			</div>
+			<div class="hidden w-full lg:flex lg:pl-11 " id="navbar-default-sticky">
+				<ul class="lg:flex items-center flex-col mt-4 lg:mt-0 lg:flex-row">
+					<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+						<a href="https://localhost:44397/gioi-thieu-504-power/"
+							class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+							<span class="text-sm hover:text-yellow-300">GIỚI THIỆU</span>
+						</a>
+					</li>
+					<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+						<a href="javascript:;" id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+							class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium   mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+							<span class="text-sm hover:text-yellow-300 flex flex-row gap-1 items-center">
+								<span>SẢN PHẨM</span>
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									  stroke-width="1.5" stroke="currentColor" class="size-5">
+									<path stroke-linecap="round" stroke-linejoin="round"
+											d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+								</svg>
+
+							</span>
+						</a>
+						<!-- Dropdown menu -->
+						<div id="dropdownNavbar"
+							  class="z-1000 hidden font-normal bg-white divide-y divide-gray-100 shadow w-44 dark:bg-gray-700 dark:divide-gray-600 w-[450px]">
+							<ul class="py-2 text-sm text-black dark:text-gray-400"
+								 aria-labelledby="dropdownLargeButton">
+								@if (sanpham != null)
+											{
+												if (sanpham.FeaturedProducts != null && sanpham.FeaturedProducts.Any())
+												{
+													foreach (var item in sanpham.FeaturedProducts)
+													{
+														var products = (Products)item;
+														<li>
+															<a href="@products.Url()" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black uppercase">
+																@products.ProductsName
+															</a>
+														</li>
+										}
+								}
+								}
+							</ul>
+						</div>
+					</li>
+					<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+						<a href="/danh-sach-du-an"
+							class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium  mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+							<span class="text-sm hover:text-yellow-300">DỰ ÁN</span>
+						</a>
+					</li>
+					<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+						<a href="https://localhost:44397/gioi-thieu-504-power/"
+							class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium  mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+							<span class="text-sm hover:text-yellow-300">XÂY DỰNG ĐIỆN</span>
+						</a>
+					</li>
+					<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+						<a href="https://localhost:44397/gioi-thieu-504-power/"
+							class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium  mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+							<span class="text-sm hover:text-yellow-300">SẢN XUẤT BTLT</span>
+						</a>
+					</li>
+					<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+						<a href="https://localhost:44397/gioi-thieu-504-power/"
+							class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium  mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+							<span class="text-sm hover:text-yellow-300">KINH DOANH VẬT TƯ ĐIỆN</span>
+						</a>
+					</li>
+					<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+						<a href="https://localhost:44397/gioi-thieu-504-power/"
+							class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium  mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+							<span class="text-sm hover:text-yellow-300">PHÁP LÝ DANH NGHIỆP</span>
+						</a>
+					</li>
+					<li class="mr-[20px] lg:mb-[0px] md:mb-[0px] mb-[20px]">
+						<a href="https://localhost:44397/gioi-thieu-504-power/"
+							class="flex items-center text-white justify-between text-sm text-center lg:text-base font-medium  mb-2 lg:mr-6 lg:mb-0 mr-auto lg:text-left m-auto lg:m-0">
+							<span class="text-sm hover:text-yellow-300">THƯ VIỆN LUẬT</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
